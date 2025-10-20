@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Srikanth Konduru</title>
+  <meta name="description" content="Srikanth Konduru — IBM Integration Developer Portfolio" />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#06b6d4;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      --max-width:1100px;
+      --gap:20px;
+      --transition:200ms ease;
+      color-scheme: dark;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg, var(--bg) 0%, #071023 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px;
+      display:flex;
+      justify-content:center;
+      font-size:16px;
+    }
+    .wrap{ width:100%; max-width:var(--max-width); }
+
+    /* Header */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo{
+      width:48px;
+      height:48px;
+      border-radius:10px;
+      background:linear-gradient(135deg, var(--accent), #7c3aed);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      box-shadow:0 6px 20px rgba(6,182,212,0.08), inset 0 -6px 20px rgba(0,0,0,0.18);
+      color:#fff;
+    }
+    nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:8px;
+      transition:var(--transition);
+    }
+    nav a:hover{ color:#fff; background:var(--glass) }
+    .cta{
+      background:linear-gradient(90deg,var(--accent),#7c3aed);
+      padding:8px 14px;
+      color:#02121a;
+      border-radius:10px;
+      font-weight:600;
+      text-decoration:none;
+      transition:transform var(--transition);
+    }
+    .cta:hover{ transform:translateY(-3px) }
+    .hamburger{
+      display:none;
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.04);
+      padding:8px;
+      border-radius:8px;
+      color:var(--muted);
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:var(--gap);
+      align-items:center;
+      margin-bottom:28px;
+    }
+    .intro{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:28px;
+      border-radius:var(--radius);
+      box-shadow:0 6px 30px rgba(2,6,23,0.6);
+      min-height:220px;
+    }
+    .intro h1{ margin:0 0 8px 0; font-size:clamp(22px,4vw,32px); }
+    .intro p{ color:var(--muted); margin:0 0 16px 0 }
+    .intro .actions{display:flex; gap:12px; flex-wrap:wrap}
+
+    .hero-image{
+      width:100%;
+      height:100%;
+      border-radius:var(--radius);
+      background: url('info.png?q=80&w=1200&auto=format&fit=crop&s=000000') center/cover no-repeat;
+      box-shadow:0 6px 30px rgba(2,6,23,0.6);
+    }
+
+    /* Sections */
+    section{ margin-bottom:24px; }
+    .card{
+      background:var(--card);
+      padding:18px;
+      border-radius:var(--radius);
+      box-shadow: 0 6px 20px rgba(2,6,23,0.6);
+    }
+
+    /* Skills */
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:18px;
+      margin-top:12px;
+    }
+    .skill-card{
+      background:rgba(255,255,255,0.08);
+      border-radius:12px;
+      padding:18px;
+      text-align:center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+    }
+    .skill-card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 6px 26px rgba(0,0,0,0.35);
+    }
+    .skill-card i{
+      font-size:1.8rem;
+      color:#a78bfa;
+      margin-bottom:10px;
+    }
+    .skill-card h3{
+      font-size:1rem;
+      color:#fff;
+      margin:0;
+    }
+
+    /* Projects */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:16px;
+    }
+    .project{
+      border-radius:12px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height:160px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+      transition:transform var(--transition), box-shadow var(--transition);
+      cursor:pointer;
+    }
+    .project:hover{ transform:translateY(-8px); box-shadow:0 20px 40px rgba(0,0,0,0.45) }
+    .project .thumb{ height:120px; background-size:cover; background-position:center; flex:0 0 120px; }
+    .project .content{ padding:12px; display:flex; gap:8px; align-items:center; justify-content:space-between; }
+    .project h4{ margin:0; font-size:16px }
+    .project p{ margin:0; color:var(--muted); font-size:14px }
+
+    /* Contact */
+    .contact-grid{ display:grid; grid-template-columns:1fr 320px; gap:16px; align-items:start }
+    input,textarea{
+      background:rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.03);
+      color:inherit;
+      padding:10px 12px;
+      border-radius:8px;
+      outline:none;
+      resize:vertical;
+    }
+    button{ 
+      background:linear-gradient(90deg,var(--accent),#7c3aed);
+      border:0; color:#02121a; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600;
+    }
+
+    footer{
+      margin-top:18px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    @media (max-width:980px){
+      .hero{ grid-template-columns:1fr }
+      .projects-grid{ grid-template-columns:repeat(2,1fr) }
+      .contact-grid{ grid-template-columns:1fr }
+    }
+    @media (max-width:680px){
+      body{ padding:18px }
+      nav{ display:none }
+      .hamburger{ display:inline-flex }
+      .projects-grid{ grid-template-columns:1fr }
+      header{ align-items:center }
+    }
+
+    /* Mobile nav panel */
+    .mobile-nav{
+      display:none;
+      position:fixed;
+      inset:72px 18px auto 18px;
+      background:linear-gradient(180deg, rgba(6,6,10,0.8), rgba(8,12,20,0.9));
+      border-radius:12px;
+      padding:12px;
+      box-shadow:0 12px 40px rgba(0,0,0,0.6);
+      z-index:90;
+    }
+    .mobile-nav.open{ display:block }
+    .mobile-nav a{ display:block; padding:10px; color:var(--muted); text-decoration:none; border-radius:8px }
+    .mobile-nav a:hover{ background:var(--glass); color:#fff }
+	.thumb:hover {
+  background-size: contain; /* on hover: fit whole image */
+}
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+  <div class="wrap" role="main">
+    <header>
+      <a class="brand" href="#">
+        <div class="logo">SK</div>
+        <div>
+          <div style="font-weight:700">Srikanth Konduru</div>
+          <div style="font-size:13px;color:var(--muted)">IBM Integration Developer</div>
+        </div>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a class="cta" href="#contact">Contact</a>
+      </nav>
+
+      <button class="hamburger" id="hambtn" aria-expanded="false" aria-controls="mobile-nav">
+        ☰
+      </button>
+    </header>
+
+    <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a class="cta" href="#contact" style="display:inline-block;margin-top:8px">Contact</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Introduction">
+      <div class="intro card">
+        <h1>Hi, I'm Srikanth Konduru</h1>
+        <p>Integration developer with experience in banking, airlines, and telecom. Skilled in real-time & batch messaging solutions, APIs, and advanced data transformations.</p>
+        <div class="actions">
+          <a class="cta" href="#skills">View Skills</a>
+        </div>
+      </div>
+      <div class="hero-image" role="img" aria-label="Integration Diagram / Hero Image"></div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="card" aria-labelledby="about-heading">
+      <h3 id="about-heading">About Me</h3>
+      <p style="color:var(--muted);margin-top:4px">
+        Integration developer with a proven record of developing and deploying resilient, secure, and high-performance messaging systems across banking, airline, and telecom industries. Skilled in designing real-time and batch processing solutions with advanced data transformation and API-driven orchestration.
+      </p>
+
+      <h4 style="margin-top:16px;color:#a78bfa">Key Achievements:</h4>
+      <ul style="margin-top:8px;color:var(--muted);">
+        <li>Reduced load by 70% using caching techniques, async MQ patterns, and dynamic transformation logic.</li>
+        <li>Enabled releases with config-driven, deployment-less strategies.</li>
+        <li>Improved system resilience and monitoring using custom ELK visualizations and structured logging.</li>
+        <li>Led migration from legacy messaging formats to RESTful APIs and microservices architectures.</li>
+        <li>Streamlined DevOps and collaboration using Jira, Confluence, Bitbucket, and Bamboo.</li>
+      </ul>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="card" aria-labelledby="skills-heading">
+      <h3 id="skills-heading">Technical Skills</h3>
+
+      <h4 style="margin-top:16px;color:#a78bfa">Integration Tools & Platforms</h4>
+      <div class="skills-grid">
+        <div class="skill-card"><i class="bi bi-diagram-3"></i><h3>IBM App Connect Enterprise (ACE)</h3></div>
+        <div class="skill-card"><i class="bi bi-arrow-repeat"></i><h3>IBM MQ</h3></div>
+        <div class="skill-card"><i class="bi bi-cloud-arrow-up"></i><h3>IBM API Connect</h3></div>
+        <div class="skill-card"><i class="bi bi-diagram-2"></i><h3>IBM Integration Bus (IIB)</h3></div>
+      </div>
+
+      <h4 style="margin-top:16px;color:#a78bfa">Programming & Scripting</h4>
+      <div class="skills-grid">
+        <div class="skill-card"><i class="bi bi-code-slash"></i><h3>ESQL (Transformations & Routing)</h3></div>
+        <div class="skill-card"><i class="bi bi-braces"></i><h3>Java (Custom Compute Nodes, Encryption)</h3></div>
+        <div class="skill-card"><i class="bi bi-terminal"></i><h3>SQL / PL-SQL</h3></div>
+        <div class="skill-card"><i class="bi bi-braces-asterisk"></i><h3>XPath, JSONPath, XSLT</h3></div>
+      </div>
+
+      <h4 style="margin-top:16px;color:#a78bfa">Messaging & Communication Protocols</h4>
+      <div class="skills-grid">
+        <div class="skill-card"><i class="bi bi-arrow-left-right"></i><h3>REST / SOAP APIs</h3></div>
+        <div class="skill-card"><i class="bi bi-box-seam"></i><h3>JMS Queuing</h3></div>
+        <div class="skill-card"><i class="bi bi-plug"></i><h3>HTTP / FTP / TCP</h3></div>
+        <div class="skill-card"><i class="bi bi-envelope-open"></i><h3>SMTP & Scheduler Nodes</h3></div>
+      </div>
+    </section>
+
+    <!-- Projects Placeholder -->
+   <!-- Projects Section -->
+<section id="projects" class="card" aria-labelledby="projects-heading">
+  <h3 id="projects-heading">Major Integration Projects</h3>
+
+  <!-- Project 1 -->
+  <div class="project-card">
+     <h2><i class="bi bi-building"></i> Noida International Airport – Wipro Limited</h2>
+    <p class="project-meta">Role: Integration Lead | Technologies: IBM ACE, IBM MQ, JMS, ELK Stack</p>
+	  <div class="thumb" style="height:160px; border-radius:12px; background-image:url('nia.png'); background-size:cover; background-position:center;"></div>
+ 
+    <p class="project-desc">
+      Led the <strong>airport integration architecture</strong> connecting <strong>AODB, BMS, IVRS,</strong> and <strong>Air Traffic Control systems</strong> through 
+      <strong>IBM ACE message flows</strong> and <strong>MQ-based asynchronous communication</strong>.  
+      Designed reusable subflows and <strong>configuration-driven frameworks</strong> for dynamic routing, DLQ handling, and 
+      centralized <strong>logging with Log4j + ELK Stack</strong> integration.  
+      Delivered a scalable, real-time data exchange backbone improving airport operations visibility.
+    </p>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="project-card">
+     <h2><i class="bi bi-truck"></i> Norwegian Cruise Line – Prolifics</h2>
+    <p class="project-meta">Role: Integration Developer | Technologies: IBM ACE, IBM MQ, REST APIs, JDBC</p>
+		  <div class="thumb" style="height:160px; border-radius:12px; background-image:url('ncl.png'); background-size:cover; background-position:center;"></div>
+ 
+ 
+    <p class="project-desc">
+      Developed <strong>MQ-based integration flows</strong> enabling seamless communication between cruise management 
+      applications and external booking services.  
+      Implemented <strong>real-time alerts, transactional logging,</strong> and <strong>data transformation logic</strong> for passenger booking, 
+      upgrades, and cancellations.  
+      Integrated <strong>external APIs</strong> for cab, hotel, and port operations, improving passenger experience automation.
+    </p>
+  </div>
+
+  <!-- Project 3 -->
+  <div class="project-card">
+     <h2><i class="bi bi-bank"></i> City Union Bank – Net Banking System</h2>
+    <p class="project-meta">Role: Senior Developer | Technologies: IBM ACE, Java, Oracle, ISO8583</p>
+		  <div class="thumb" style="height:160px; border-radius:12px; background-image:url('bank.png'); background-size:cover; background-position:center;"></div>
+ 
+    <p class="project-desc">
+      Engineered secure integration solutions for <strong>Core Banking System (CBS), NSDL, and CIBIL</strong> using 
+      <strong>IBM App Connect Enterprise</strong> and custom Java compute nodes.  
+      Created a <strong>custom framework</strong> for DB logging, exception alerting, and configuration management.  
+      Implemented <strong>NSDL eKYC and CIBIL credit score</strong> services with <strong>ISO and JSON message formats</strong>.  
+      Enhanced API reliability through <strong>error-handling subflows</strong> and <strong>asynchronous message recovery</strong>.
+    </p>
+  </div>
+
+  <!-- Project 4 -->
+  <div class="project-card">
+     <h2><i class="bi bi-cash-stack"></i> Toyota Financial Services – PCR Automation</h2>
+	 		  <div class="thumb" style="height:160px; border-radius:12px; background-image:url('tfsin.png'); background-size:cover; background-position:center;"></div>
+ 
+    <p class="project-meta">Role: Integration Developer | Technologies: IBM ACE, MQ, JDBC, AES/RSA</p>
+    <p class="project-desc">
+      Designed and implemented <strong>secure file-based integrations</strong> between client systems and financial backends 
+      with <strong>AES/RSA encryption</strong> and <strong>custom decryption frameworks</strong>.  
+      Integrated <strong>credit bureaus (CIBIL, Experian, Equifax)</strong> for credit scoring and compliance validation.  
+      Developed <strong>parallel execution pipelines</strong> and <strong>real-time alerting modules</strong> for faster financial transactions.  
+      Delivered a scalable middleware layer ensuring <strong>regulatory compliance and performance optimization</strong>.
+    </p>
+  </div>
+</section>
+
+
+<!-- Blogs Section -->
+<section id="blogs" class="card" aria-labelledby="blogs-heading" style="margin-top:32px;">
+  <h3 id="blogs-heading">Latest Blogs</h3>
+
+  <div class="projects-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-top:20px;">
+
+    <!-- Blog 1 -->
+    <article class="project-card" style="display:flex; flex-direction:column; padding:16px;">
+      <a href="jks.png" target="_blank">
+  <div class="thumb" style="
+       width: 300px;
+       height: 200px;
+       background-image: url('jks.png');
+       background-size: cover; /* normal view: cropped */
+       background-position: center;
+       background-repeat: no-repeat;
+       cursor: pointer;
+	   border-radius:12px;
+       transition: background-size 0.5s ease;">
+  </div>
+  </a>
+      <div class="content" style="margin-top:12px;">
+        <h4>Managing Encryption, Decryption & Expiry Alerts with JKS</h4>
+        <p style="color:#9ca3af; font-size:0.9rem;">JKS securely stores public/private key pairs and certificates, enabling encryption, decryption, and certificate lifecycle management.Automatically monitor certificates in the Java KeyStore and trigger alerts before they expire to prevent downtime and service outages.
+</p>
+      </div>
+    </article>
+	   <article class="project-card" style="display:flex; flex-direction:column; padding:16px;">
+    <a href="report.png" target="_blank">
+  <div class="thumb" style="
+       width: 300px;
+       height: 200px;
+       background-image: url('report.png');
+       background-size: cover; /* normal view: cropped */
+       background-position: center;
+       background-repeat: no-repeat;
+       cursor: pointer;
+	   border-radius:12px;
+       transition: background-size 0.5s ease;">
+  </div>
+</a>
+
+      <div class="content" style="margin-top:12px;">
+        <h4>Consolidated Report Matters in API and Integration Projects</h4>
+        <p style="color:#9ca3af; font-size:0.9rem;">A Consolidated Report unifies API activity, showing hits, successes/failures, top performers, and common errors.
+It acts as a clear, single-dashboard view for API health, making performance tracking and issue identification simple.
+</p>
+       </div>
+    </article>
+	   <article class="project-card" style="display:flex; flex-direction:column; padding:16px;">
+     <a href="swift.png" target="_blank">
+  <div class="thumb" style="
+       width: 300px;
+       height: 200px;
+       background-image: url('swift.png');
+       background-size: cover; /* normal view: cropped */
+       background-position: center;
+       background-repeat: no-repeat;
+       cursor: pointer;
+	   border-radius:12px;
+       transition: background-size 0.5s ease;">
+  </div>
+  </a>
+      <div class="content" style="margin-top:12px;">
+        <h4>SWIFT MT Messages into Structured XML</h4>
+        <p style="color:#9ca3af; font-size:0.9rem;">To enable downstream systems like core banking, reconciliation, and compliance to process data effectively, SWIFT messages are transformed into structured XML. This approach converts cryptic SWIFT blocks into meaningful business fields and efficiently handles bulk transactions, ensuring accurate and streamlined financial data processing.
+</p>
+       </div>
+    </article>
+	
+	<article class="project-card" style="display:flex; flex-direction:column; padding:16px;">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'); 
+           height:150px; border-radius:12px; background-size:cover; background-position:center;"></div>
+      <div class="content" style="margin-top:12px;">
+        <h4>Dynamic Retrieval of Code Snippets</h4>
+        <p style="color:#9ca3af; font-size:0.9rem;">Traditional APIs often hardcode logic or use dedicated endpoints per system, which is hard to scale.
+Externalizing transformation logic, templates, or metadata into a central database enables dynamic, runtime execution.
+This approach supports SQL/JSON/script transformations, unified endpoints, and configuration-driven, scalable governance.
+</p>
+      </div>
+    </article>
+	
+	 <article class="project-card" style="display:flex; flex-direction:column; padding:16px;">
+     <a href="elk.png" target="_blank">
+  <div class="thumb" style="
+       width: 300px;
+       height: 200px;
+       background-image: url('elk.png');
+       background-size: cover; /* normal view: cropped */
+       background-position: center;
+       background-repeat: no-repeat;
+       cursor: pointer;
+	   border-radius:12px;
+       transition: background-size 0.5s ease;">
+  </div>
+  </a>
+      <div class="content" style="margin-top:12px;">
+        <h4>API Monitoring Using ELK Log Dashboard</h4>
+        <p style="color:#9ca3af; font-size:0.9rem;">Enables tracking from subsystems like InternetBanking, MobileBanking, CoreBanking offering visibility across the integration. With UUID-level traceability, success/failure counts so teams can quickly pinpoint issues, perform root cause analysis, and minimize downtime.
+</p>
+      </div>
+    </article>
+	
+	
+	<article class="project-card" style="display:flex; flex-direction:column; padding:16px;">
+      <a href="log.png" target="_blank">
+  <div class="thumb" style="
+       width: 300px;
+       height: 200px;
+       background-image: url('log.png');
+       background-size: cover; /* normal view: cropped */
+       background-position: center;
+       background-repeat: no-repeat;
+       cursor: pointer;
+	   border-radius:12px;
+       transition: background-size 0.5s ease;">
+  </div>
+  </a>
+      <div class="content" style="margin-top:12px;">
+        <h4>Logging and Alerting Framework</h4>
+        <p style="color:#9ca3af; font-size:0.9rem;">UUID-based transaction tracking simplifies debugging.Structured logging provides meaningful insights for analytics and monitoring, and centralized error management maintains a consistent logging strategy across applications. Together, these practices improve application performance by offering actionable insights to optimize integration flows and APIs.
+</p>
+      </div>
+    </article>
+	
+	
+	<article class="project-card" style="display:flex; flex-direction:column; padding:16px;">
+     <a href="auth.png" target="_blank">
+  <div class="thumb" style="
+       width: 300px;
+       height: 200px;
+       background-image: url('auth.png');
+       background-size: cover; /* normal view: cropped */
+       background-position: center;
+       background-repeat: no-repeat;
+       cursor: pointer;
+	   border-radius:12px;
+       transition: background-size 0.5s ease;">
+  </div>
+  </a>
+      <div class="content" style="margin-top:12px;">
+        <h4>Authorization and Authentication</h4>
+        <p style="color:#9ca3af; font-size:0.9rem;">Verifies the identity of users or systems, typically using OAuth2, JWT, or API keys.Controls access to resources based on roles, permissions, or policies.
+</p>
+      </div>
+    </article>
+	
+	
+  </div>
+</section>
+
+
+
+    <!-- Contact -->
+<section id="contact" class="card" aria-labelledby="contact-heading">
+  <h3 id="contact-heading">Contact</h3>
+  <div style="margin-top:12px" class="contact-grid">
+    <aside style="padding:12px">
+      <div style="font-weight:700">Get in touch</div>
+      <div style="color:var(--muted);margin-top:8px">Available for freelance & full-time remote</div>
+
+      <!-- Email -->
+      <div style="margin-top:16px">
+        <div style="color:var(--muted);font-size:14px">Email</div>
+        <a href="mailto:srikanthkonduru6@gmail.com" style="color:inherit;text-decoration:none">srikanthkonduru6@gmail.com</a>
+      </div>
+
+      <!-- Social Links -->
+      <div style="margin-top:16px">
+        <div style="color:var(--muted);font-size:14px;margin-bottom:8px">Connect</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div>LinkedIn : <a href="https://www.linkedin.com/in/konduru-srikanth-b053b560/" target="_blank" style="color:inherit;text-decoration:none">Srikanth Konduru</a></div>
+		  <div>Instagram : <a href="https://www.instagram.com/_srikanthkonduru" target="_blank" style="color:inherit;text-decoration:none">_srikanthkonduru</a></div>
+          
+        </div>
+      </div>
+
+    </aside>
+  </div>
+</section>
+
+
+
+
+    <footer>
+      <div>© <span id="year"></span> Srikanth Konduru</div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <a href="#" style="color:var(--muted);text-decoration:none">Privacy</a>
+        <a href="#" style="color:var(--muted);text-decoration:none">Terms</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Mobile nav toggle
+    const ham = document.getElementById('hambtn');
+    const mnav = document.getElementById('mobile-nav');
+    ham.addEventListener('click', ()=> {
+      const open = mnav.classList.toggle('open');
+      ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mnav.setAttribute('aria-hidden', open ? 'false' : 'true');
+    });
+
+    // Contact form demo
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      status.textContent = 'Sending...';
+      setTimeout(()=> {
+        status.textContent = 'Thanks — message received!';
+        form.reset();
+        setTimeout(()=> status.textContent = '', 4000);
+      }, 800);
+    });
+
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
