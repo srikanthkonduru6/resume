@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Srikanth Konduru — IBM Integration Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --text: #1e293b;
+      --muted: #475569;
+      --bg: #f8fafc;
+      --card: #ffffff;
+    }
+
+    @page {
+      size: legal; /* Fits Legal page size (8.5 x 14 in) */
+      margin: 1in;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .resume {
+      display: grid;
+      grid-template-columns: 2.4fr 0.9fr;
+      width: 100%;
+      max-width: 900px;
+      background: var(--card);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      page-break-inside: avoid;
+    }
+
+    main {
+      padding: 40px 50px;
+    }
+
+    aside {
+      background: #f1f5f9;
+      padding: 40px 25px;
+      border-left: 1px solid #e2e8f0;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    .role {
+      font-size: 15px;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .summary {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    section {
+      margin-bottom: 26px;
+    }
+
+    section h2 {
+      font-size: 15px;
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    li {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .experience-item {
+      margin-bottom: 18px;
+    }
+
+    .experience-item h3 {
+      margin: 0;
+      font-size: 14.5px;
+      font-weight: 500;
+    }
+
+    .company {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .project-blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .project-block {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 12px 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .project-block h4 {
+      margin: 0 0 5px;
+      font-size: 14px;
+      color: #2563eb;
+    }
+
+    .project-meta {
+      background: #eef2ff;
+      border-left: 3px solid #2563eb;
+      padding: 6px 10px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+    }
+
+    .project-meta p {
+      margin: 2px 0;
+      font-size: 12.5px;
+      color: #334155;
+    }
+
+    .project-block li {
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .contact-item a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    footer {
+      grid-column: span 2;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 10px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    /* Print-friendly adjustments */
+    @media print {
+      body {
+        background: #fff;
+        box-shadow: none;
+        padding: 0;
+      }
+      .resume {
+        box-shadow: none;
+        border-radius: 0;
+      }
+      footer {
+        border: none;
+        color: #666;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume">
+    <main>
+      <h1>Srikanth Konduru</h1>
+      <div class="role">IBM Integration Developer (5 Years Experience)</div>
+      <div class="summary">
+        Integration developer with expertise in building secure, scalable, and resilient enterprise messaging systems using IBM App Connect Enterprise (ACE), IBM MQ, and IIB across banking, aviation, and telecom domains.
+      </div>
+
+      <section>
+        <h2>Core Competencies</h2>
+        <ul>
+          <li>Messaging Platforms: IBM ACE, IIB, IBM MQ, MQTT</li>
+          <li>Security & Data Protection: RSA/AES, PKI, BouncyCastle</li>
+          <li>Data Transformation: ESQL, XSLT, Data Mapping</li>
+          <li>Protocols & APIs: REST, SOAP, ISO8583, TMF Open APIs</li>
+          <li>DevOps Tooling: Bitbucket, Jenkins, Bamboo</li>
+          <li>Deployment: Cloud Pak for Integration, ROSA, Linux</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Professional Experience</h2>
+        <div class="experience-item">
+          <h3>Integration Developer — Pronteff IT Solutions</h3>
+          <div class="company">Dec 2020 – Mar 2025 | Hyderabad, India</div>
+          <div class="project-blocks">
+            <div class="project-block">
+              <h4>✈️ Noida International Airport (Client: Wipro)</h4>
+              <div class="project-meta">
+                <p><strong>Domain:</strong> Aviation</p>
+                <p><strong>ACE:</strong> 12.0.7 | <strong>MQ:</strong> 9.3</p>
+              </div>
+              <ul>
+                <li>Developed MQ services using SSL-secured channels and clustered QMs for active-active architecture.</li>
+                <li>Designed dynamic routing frameworks enabling multi-system communication with configurable event mapping.</li>
+                <li>Implemented Log4j-based logging with rotation and retention policies for optimized storage.</li>
+              </ul>
+            </div>
+
+            <div class="project-block">
+              <h4>🚢 Norwegian Cruise Line (Client: Prolifics)</h4>
+              <div class="project-meta">
+                <p><strong>Domain:</strong> Travel & Hospitality</p>
+                <p><strong>ACE:</strong> 10.0.6 | <strong>MQ:</strong> 9.2</p>
+              </div>
+              <ul>
+                <li>Developed reusable subflows for encryption, ID generation, and reporting automation.</li>
+                <li>Enabled event-driven notification flows and automated email alert workflows.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <h3>Integration Developer — LanceSoft, Inc.</h3>
+          <div class="company">Apr 2025 – Present | Riyadh, Saudi Arabia</div>
+          <div class="project-blocks">
+            <div class="project-block">
+              <h4>📡 Mobily Infotech (Client: Robert Bosch)</h4>
+              <div class="project-meta">
+                <p><strong>Domain:</strong> Telecom</p>
+                <p><strong>ACE:</strong> 12.0.8 | <strong>MQ:</strong> 9.3.1</p>
+              </div>
+              <ul>
+                <li>Integrated CRM, Billing, OSS/BSS systems with high-TPS MQ services and centralized frameworks.</li>
+                <li>Enabled ELK-based observability and SSL-secured inter-system communication.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <ul>
+          <li>B.Tech in Computer Science — JNTU Hyderabad (2012–2016)</li>
+          <li>Intermediate (MPC) — Sri Chaitanya Jr. College (2010–2012)</li>
+        </ul>
+      </section>
+    </main>
+
+    <aside>
+      <section>
+        <h2>Contact</h2>
+        <div class="contact-item"><i class="bi bi-envelope"></i><a href="mailto:srikanthkonduru6@gmail.com">srikanthkonduru6@gmail.com</a></div>
+        <div class="contact-item"><i class="bi bi-phone"></i>+91 9494475471</div>
+        <div class="contact-item"><i class="bi bi-geo-alt"></i>Hyderabad, India</div>
+        <div class="contact-item"><i class="bi bi-linkedin"></i><a href="https://www.linkedin.com/in/konduru-srikanth-b053b560/">linkedin.com/in/konduru-srikanth</a></div>
+      </section>
+
+      <section>
+        <h2>Technical Skills</h2>
+        <ul>
+          <li>Messaging Systems</li>
+          <li>Security & Cryptography</li>
+          <li>API Development</li>
+          <li>Monitoring & Logging</li>
+          <li>DevOps & CI/CD</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Achievements</h2>
+        <ul>
+          <li>Reduced system load by 70% via optimized async messaging.</li>
+          <li>Delivered config-driven deployment solutions.</li>
+          <li>Enhanced observability through ELK dashboards.</li>
+        </ul>
+      </section>
+    </aside>
+
+    <footer>© 2025 Srikanth Konduru | IBM Integration Developer</footer>
+  </div>
+</body>
+</html>
